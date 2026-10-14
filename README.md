@@ -1,4 +1,4 @@
-# رزومه‌یار کانادا (Resume Coach)
+# Matchora: resume coach for newcomers to Canada
 
 A web app for Persian-speaking newcomers to Canada. You paste a resume (or upload a PDF, .docx or .txt file) and one job ad. The app returns:
 

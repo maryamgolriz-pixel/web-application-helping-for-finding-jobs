@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import MatchoraLogo from "./MatchoraLogo";
 import { CheckIcon, faNum } from "./ui";
 
 const STEPS = [
@@ -43,6 +44,7 @@ export default function LoadingPanel({
 
   return (
     <div className="mx-auto max-w-xl rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-200 sm:p-8" aria-live="polite">
+      <MatchoraLogo variant="icon" loop className="mx-auto mb-6 h-16 w-auto" />
       <div className="flex items-center justify-between gap-4">
         <h2 className="text-lg font-bold text-stone-900">در حال بررسی رزومه‌ی شما…</h2>
         <span dir="ltr" className="text-sm tabular-nums text-stone-500">

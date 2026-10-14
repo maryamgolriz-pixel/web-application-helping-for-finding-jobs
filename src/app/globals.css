@@ -28,3 +28,121 @@ mark.placeholder {
     background: white;
   }
 }
+
+/* ---------- Matchora logo animation (see MatchoraLogo.tsx) ---------- */
+
+.matchora-logo {
+  overflow: visible;
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+.matchora-logo .mx-head,
+.matchora-logo .mx-node {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Entrance: the two people slide in from opposite sides and meet in the middle. */
+.matchora-logo .mx-half-left {
+  animation: mx-in-left 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.matchora-logo .mx-half-right {
+  animation: mx-in-right 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.matchora-logo .mx-head {
+  animation:
+    mx-head-in 0.6s 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    mx-bob 3.2s 1.6s ease-in-out infinite;
+}
+.matchora-logo .mx-head-right {
+  animation-delay: 0.55s, 3.2s;
+}
+.matchora-logo .mx-node {
+  animation:
+    mx-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+    mx-pulse 2.8s ease-in-out infinite;
+}
+.matchora-logo .mx-node-1 { animation-delay: 0.7s, 1.8s; }
+.matchora-logo .mx-node-2 { animation-delay: 0.8s, 2.5s; }
+.matchora-logo .mx-node-3 { animation-delay: 0.9s, 2.15s; }
+.matchora-logo .mx-node-4 { animation-delay: 1s, 2.85s; }
+.matchora-logo .mx-word {
+  animation: mx-word-in 0.9s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.matchora-logo .mx-shine {
+  transform: skewX(-20deg);
+  animation: mx-shine 1.3s 1.2s ease-in-out both;
+}
+
+/* Hover: the halves move closer (a handshake), the logo lifts and the light sweeps again. */
+.matchora-logo .mx-shift {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.matchora-logo:hover {
+  transform: translateY(-1px);
+  filter: drop-shadow(0 6px 14px rgb(33 89 244 / 0.22));
+}
+.matchora-logo:hover .mx-shift-left { transform: translateX(3px); }
+.matchora-logo:hover .mx-shift-right { transform: translateX(-3px); }
+.matchora-logo:hover .mx-shine {
+  animation: mx-shine-again 1s ease-in-out both;
+}
+
+/* Loading: the halves keep meeting and parting. */
+.matchora-logo.mx-loop .mx-shift-left { animation: mx-meet-left 1.8s 0.9s ease-in-out infinite; }
+.matchora-logo.mx-loop .mx-shift-right { animation: mx-meet-right 1.8s 0.9s ease-in-out infinite; }
+.matchora-logo.mx-loop .mx-shine { animation: mx-shine 1.8s 0.9s ease-in-out infinite; }
+
+@keyframes mx-in-left {
+  from { transform: translateX(-28px); opacity: 0; }
+  50% { opacity: 1; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes mx-in-right {
+  from { transform: translateX(28px); opacity: 0; }
+  50% { opacity: 1; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes mx-head-in {
+  from { transform: translateY(-14px) scale(0.6); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes mx-bob {
+  0%, 100% { transform: none; }
+  50% { transform: translateY(-2.5px); }
+}
+@keyframes mx-pop {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes mx-pulse {
+  0%, 70%, 100% { transform: none; opacity: 1; }
+  80% { transform: scale(1.35); opacity: 0.75; }
+}
+@keyframes mx-word-in {
+  from { opacity: 0; transform: translateX(-10px); clip-path: inset(0 100% 0 0); }
+  to { opacity: 1; transform: none; clip-path: inset(0 0 0 0); }
+}
+@keyframes mx-shine {
+  from { transform: translateX(0) skewX(-20deg); }
+  to { transform: translateX(640px) skewX(-20deg); }
+}
+@keyframes mx-shine-again {
+  from { transform: translateX(0) skewX(-20deg); }
+  to { transform: translateX(640px) skewX(-20deg); }
+}
+@keyframes mx-meet-left {
+  0%, 100% { transform: none; }
+  45% { transform: translateX(-7px); }
+}
+@keyframes mx-meet-right {
+  0%, 100% { transform: none; }
+  45% { transform: translateX(7px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matchora-logo,
+  .matchora-logo * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

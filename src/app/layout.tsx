@@ -6,7 +6,7 @@ const vazirmatn = Vazirmatn({ subsets: ["arabic", "latin"], variable: "--font-va
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "رزومه‌یار کانادا",
+  title: "Matchora | مربی رزومه برای کانادا",
   description:
     "رزومه‌تان را با یک آگهی شغلی مقایسه کنید و برای بازار کار کانادا آماده‌اش کنید: امتیاز تطابق، کلیدواژه‌ها، نکات فرمت، بازنویسی جمله‌ها و کاور لتر.",
 };
