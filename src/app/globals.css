@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-vazirmatn), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-latin: var(--font-inter), var(--font-vazirmatn), ui-sans-serif, system-ui, sans-serif;
+  --color-maple: #d52b1e;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-stone-50);
+  color: var(--color-stone-800);
+}
+
+/* Placeholders like [X%] that the user must fill in (or delete). */
+mark.placeholder {
+  background: var(--color-amber-100);
+  color: var(--color-amber-900);
+  border-radius: 0.25rem;
+  padding: 0 0.15rem;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+}
